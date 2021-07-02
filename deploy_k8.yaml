@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: su-embedder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: su-embedder
+  template:
+    metadata:
+      labels:
+        app: su-embedder
+    spec:
+      containers:
+      - name: su-embedder-app
+        image: gcr.io/su-city/su-embedder:1.0.0
+        ports:
+        - containerPort: 3002
+        env:
+          - name: PORT
+            value: "3002"
+          - name: ADMIN_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: su-secret-config
+                key: admin-username
+          - name: ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: su-secret-config
+                key: admin-password
+
