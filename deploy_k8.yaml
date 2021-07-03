@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: su-embedder-app
-        image: gcr.io/su-city/su-embedder:1.0.0
+        image: gcr.io/su-city/su-embedder:17e3628d924
         ports:
         - containerPort: 3002
         env:
@@ -30,4 +30,3 @@ spec:
               secretKeyRef:
                 name: su-secret-config
                 key: admin-password
-

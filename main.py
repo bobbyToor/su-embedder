@@ -23,4 +23,4 @@ def shutdown():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app=fastapp, host="127.0.0.1", port=3002)
+    uvicorn.run(app=fastapp, host="0.0.0.0", port=3002)
