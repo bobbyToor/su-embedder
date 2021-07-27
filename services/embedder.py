@@ -1,3 +1,4 @@
+from typing import List
 from sentence_transformers import SentenceTransformer
 
 # model = SentenceTransformer("paraphrase-distilroberta-base-v1")
@@ -6,5 +7,5 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("paraphrase-mpnet-base-v2")
 
 
-def embedder(input: str):
-    return model.encode(input)
+def embedder(sentences: List[str]):
+    return [model.encode(sentence).tolist() for sentence in sentences]

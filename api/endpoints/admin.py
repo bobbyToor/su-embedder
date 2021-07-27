@@ -8,5 +8,5 @@ router = APIRouter()
 def hello():
     return JSONResponse(
         status_code=status.HTTP_200_OK,
-        content={"Hello": "World"},
+        content={"Hello": "World from su-embedder"},
     )
